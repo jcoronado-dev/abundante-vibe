@@ -1,0 +1,669 @@
+
+/* ==========================================
+   PROYECTO: VIBE ABUNDANTE
+   ARCHIVO: responsive.css
+
+   Adapta el diseño a diferentes tamaños de
+   pantalla mediante Media Queries.
+
+   1. Pantallas grandes desde 1600px
+   2. Monitores 4K desde 2560px
+   3. Pantallas hasta 1100px
+   4. Tablets hasta 900px
+   5. Celulares hasta 600px
+   6. Celulares hasta 420px
+   7. Celulares pequeños hasta 360px
+   8. Accesibilidad y movimiento reducido
+   ========================================== */
+
+/* ==========================================
+   1. PANTALLAS GRANDES DESDE 1600px
+   ========================================== */
+
+@media (min-width: 1600px) {
+
+  /* Limita el ancho del Hero y centra su contenido
+     para evitar una separación excesiva. */
+  .hero {
+    max-width: 1600px;
+    margin-inline: auto;
+    min-height: min(85vh, 950px);
+    gap: 80px;
+    padding: 80px 5%;
+  }
+
+  .hero-content {
+    max-width: 750px;
+  }
+
+  /* Ajusta el tamaño del título y texto principal. */
+  .hero h1 {
+    font-size: clamp(4rem, 4.5vw, 5.5rem);
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  /* Amplía el carrusel de fotografías. */
+  .image-frame {
+    width: 100%;
+    max-width: 540px;
+    height: 660px;
+  }
+}
+
+/* ==========================================
+   2. MONITORES 4K DESDE 2560px
+   ========================================== */
+
+@media (min-width: 2560px) {
+
+  /* Amplía la presentación sin extenderla
+     innecesariamente por toda la pantalla. */
+  .hero {
+    max-width: 2400px;
+    min-height: min(85vh, 1500px);
+    gap: 120px;
+    padding: 100px 5%;
+  }
+
+  .hero-content {
+    max-width: 1100px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.5rem, 3.5vw, 8rem);
+  }
+
+  .hero p {
+    max-width: 850px;
+    font-size: 1.6rem;
+  }
+
+  /* Ajusta los botones principales a pantallas grandes. */
+  .hero-actions {
+    gap: 24px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    padding: 22px 40px;
+    font-size: 1.2rem;
+  }
+
+  /* Aumenta las dimensiones del carrusel. */
+  .image-frame {
+    max-width: 800px;
+    height: 980px;
+  }
+
+  /* Mantiene centradas las cuadrículas de contenido. */
+  .product-grid,
+  .lookbook-grid {
+    max-width: 2400px;
+    margin-inline: auto;
+  }
+}
+
+/* ==========================================
+   3. PANTALLAS HASTA 1100px
+   ========================================== */
+
+@media (max-width: 1100px) {
+
+  /* Reduce los espacios de la navegación. */
+  .navbar {
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: .85rem;
+  }
+
+  /* Ajusta el tamaño del logo y su eslogan. */
+  .logo-vibe,
+  .logo-abundante {
+    font-size: 1.55rem;
+  }
+
+  .logo-main {
+    gap: 6px;
+  }
+
+  .logo-slogan {
+    font-size: .5rem;
+    letter-spacing: 1px;
+  }
+
+  /* Reduce la separación entre el texto y el carrusel. */
+  .hero {
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 4.5vw, 4rem);
+  }
+}
+
+/* ==========================================
+   4. TABLETS HASTA 900px
+   ========================================== */
+
+@media (max-width: 900px) {
+
+  /* Distribuye la navegación en tres columnas:
+     menú hamburguesa, logo y bolsín. */
+  .navbar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 5%;
+  }
+
+  /* Muestra el botón del menú hamburguesa. */
+  .menu-toggle {
+    display: inline-flex;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Centra el logo en la segunda columna. */
+  .logo-navbar {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .logo-main {
+    justify-content: center;
+  }
+
+  .logo-slogan {
+    text-align: center;
+  }
+
+  /* Ubica el bolsín en la tercera columna. */
+  .cart-nav-wrapper {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  /* Mantiene ocultos los enlaces hasta abrir el menú. */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 5% 20px;
+    background: rgba(14, 12, 10, .98);
+    border-bottom: 1px solid var(--pink);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .35);
+    z-index: 99;
+  }
+
+  /* Muestra los enlaces al abrir el menú hamburguesa. */
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 12px;
+    font-size: .95rem;
+    border-bottom: 1px solid rgba(230, 197, 148, .1);
+  }
+
+  /* Coloca el contenido textual encima del carrusel. */
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    gap: 45px;
+    padding: 60px 6%;
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 700px;
+    flex: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  /* Centra y ajusta el carrusel. */
+  .hero-visual {
+    width: 100%;
+    flex: none;
+    justify-content: center;
+  }
+
+  .image-frame {
+    width: 100%;
+    max-width: 480px;
+    height: 550px;
+  }
+
+  /* Ajusta los espacios de las secciones principales. */
+  .drop-section {
+    padding: 70px 5%;
+  }
+
+  .lookbook-section {
+    padding: 70px 5%;
+  }
+
+  .vip-section {
+    padding: 65px 5% 90px;
+  }
+}
+
+/* ==========================================
+   5. CELULARES HASTA 600px
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  /* Muestra la versión móvil de la franja promocional. */
+  .top-banner {
+    padding: 8px 10px;
+  }
+
+  .top-banner .banner-desktop {
+    display: none;
+  }
+
+  .top-banner .banner-mobile {
+    display: block;
+  }
+
+  /* Compacta la barra de navegación. */
+  .navbar {
+    gap: 8px;
+    padding: 12px 10px;
+  }
+
+  .menu-toggle {
+    padding: 8px 10px;
+    font-size: 1.1rem;
+  }
+
+  /* Adapta el tamaño del logo y su eslogan. */
+  .logo-main {
+    gap: 4px;
+  }
+
+  .logo-vibe,
+  .logo-abundante {
+    font-size: clamp(1rem, 3.8vw, 1.4rem);
+    letter-spacing: -.5px;
+  }
+
+  .logo-slogan {
+    margin-top: 5px;
+    font-size: clamp(.35rem, 1.35vw, .48rem);
+    letter-spacing: .5px;
+  }
+
+  /* Reduce las dimensiones del botón y contador del bolsín. */
+  .btn-cart-trigger {
+    gap: 4px;
+    padding: 8px 10px;
+    font-size: .7rem;
+  }
+
+  .cart-badge {
+    min-width: 19px;
+    min-height: 19px;
+    padding: 2px 5px;
+    font-size: .6rem;
+  }
+
+  /* Ajusta los espacios de la presentación principal. */
+  .hero {
+    gap: 35px;
+    padding: 45px 5%;
+  }
+
+  .badge {
+    margin-bottom: 18px;
+    padding: 6px 12px;
+    font-size: .65rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .hero p {
+    margin-bottom: 28px;
+    font-size: 1rem;
+  }
+
+  /* Ajusta los botones de acceso a colección y outfits. */
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 24px;
+    font-size: .85rem;
+  }
+
+  /* Reduce las dimensiones del carrusel. */
+  .image-frame {
+    max-width: 420px;
+    height: 460px;
+    border-radius: 20px;
+  }
+
+  .floating-tag {
+    bottom: 18px;
+    left: 18px;
+    padding: 10px 15px;
+  }
+
+  .floating-tag strong {
+    font-size: 1rem;
+  }
+
+  .carousel-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+  }
+
+  /* Ajusta los encabezados de las secciones. */
+  .section-header {
+    margin-bottom: 38px;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-header p {
+    font-size: .95rem;
+  }
+
+  /* Adapta las tarjetas de la colección. */
+  .drop-section {
+    padding: 60px 5%;
+  }
+
+  .product-grid {
+    gap: 22px;
+  }
+
+  .card-img {
+    height: 340px;
+  }
+
+  /* Ajusta la galería de Vibes & Outfits. */
+  .lookbook-section {
+    padding: 60px 5%;
+  }
+
+  .lookbook-grid {
+    gap: 22px;
+  }
+
+  .look-card {
+    height: 390px;
+  }
+
+  /* Adapta el recuadro de Comunidad VIP. */
+  .vip-section {
+    padding: 55px 5% 75px;
+  }
+
+  .vip-box {
+    padding: 45px 20px;
+    border-radius: 24px;
+  }
+
+  .vip-box h2 {
+    font-size: 1.8rem;
+  }
+
+  .vip-box p {
+    font-size: .95rem;
+  }
+
+  /* Coloca el formulario de suscripción en vertical. */
+  .vip-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vip-form input,
+  .vip-form button {
+    width: 100%;
+  }
+
+  /* Permite que el bolsín ocupe el ancho de la pantalla. */
+  .cart-drawer {
+    max-width: 100%;
+  }
+
+  .cart-header {
+    padding: 20px;
+  }
+
+  .cart-items {
+    padding: 18px;
+  }
+
+  .cart-footer {
+    padding: 20px;
+  }
+
+  /* Reduce los espacios del pie de página. */
+  .footer {
+    padding: 35px 5%;
+  }
+}
+
+/* ==========================================
+   6. CELULARES HASTA 420px
+   ========================================== */
+
+@media (max-width: 420px) {
+
+  /* Distribuye el espacio disponible sin superponer
+     el menú hamburguesa, el logo y el bolsín. */
+  .navbar {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 12px 8px;
+  }
+
+  .logo-navbar {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .logo-main {
+    gap: 3px;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  /* Reduce progresivamente el logo según el ancho
+     de la pantalla para mantenerlo en su columna. */
+  .logo-vibe,
+  .logo-abundante {
+    font-size: clamp(.62rem, 2.6vw, .95rem);
+    letter-spacing: -.5px;
+  }
+
+  .logo-slogan {
+    font-size: .34rem;
+    letter-spacing: .3px;
+  }
+
+  /* Mantiene visibles y separados los botones laterales. */
+  .menu-toggle {
+    padding: 8px;
+    font-size: 1rem;
+  }
+
+  .btn-cart-trigger {
+    gap: 3px;
+    padding: 8px;
+    font-size: .65rem;
+  }
+
+  .cart-badge {
+    min-width: 18px;
+    min-height: 18px;
+    padding: 2px 4px;
+    font-size: .58rem;
+  }
+}
+
+/* ==========================================
+   7. CELULARES PEQUEÑOS HASTA 360px
+   ========================================== */
+
+@media (max-width: 360px) {
+
+  /* Compacta la navegación en pantallas pequeñas. */
+  .navbar {
+    gap: 5px;
+    padding: 10px 7px;
+  }
+
+  .menu-toggle {
+    padding: 7px 8px;
+    font-size: 1rem;
+  }
+
+  /* Reduce el logo para evitar superposiciones. */
+  .logo-main {
+    gap: 3px;
+  }
+
+  .logo-vibe,
+  .logo-abundante {
+    font-size: clamp(.58rem, 2.45vw, .78rem);
+    letter-spacing: -.5px;
+  }
+
+  .logo-slogan {
+    font-size: .32rem;
+    letter-spacing: .3px;
+  }
+
+  /* Ajusta el botón y contador del bolsín. */
+  .btn-cart-trigger {
+    gap: 3px;
+    padding: 7px 8px;
+    font-size: .65rem;
+  }
+
+  .cart-badge {
+    min-width: 18px;
+    min-height: 18px;
+    font-size: .58rem;
+  }
+
+  /* Aprovecha mejor el ancho disponible del Hero. */
+  .hero {
+    padding: 40px 4%;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero p {
+    font-size: .92rem;
+  }
+
+  /* Coloca los botones principales uno debajo del otro. */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions a {
+    width: 100%;
+  }
+
+  /* Ajusta el carrusel y su etiqueta flotante. */
+  .image-frame {
+    height: 400px;
+  }
+
+  .floating-tag {
+    bottom: 12px;
+    left: 12px;
+    padding: 9px 12px;
+  }
+
+  /* Reduce la altura de las tarjetas de productos. */
+  .card-img {
+    height: 300px;
+  }
+
+  /* Reduce la altura de las fotografías del Lookbook. */
+  .look-card {
+    height: 340px;
+  }
+
+  /* Compacta el recuadro de Comunidad VIP. */
+  .vip-box {
+    padding: 35px 15px;
+  }
+}
+
+/* ==========================================
+   8. ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
+   ========================================== */
+
+/* Respeta las preferencias de los usuarios
+   que necesitan reducir los efectos de movimiento. */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Reduce la duración de animaciones y transiciones. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ==========================================
+   FIN DE responsive.css
+   ========================================== */

@@ -1,0 +1,237 @@
+
+/* ==========================================
+   PROYECTO: VIBE ABUNDANTE
+   ARCHIVO: base.css
+   HTML RELACIONADO: index.html
+
+   1. Variables globales
+   2. Reinicio de estilos
+   3. Configuración general
+   4. Elementos HTML
+   5. Accesibilidad
+   ========================================== */
+
+
+/* ==========================================
+   1. VARIABLES GLOBALES
+
+   Identidad visual reutilizada mediante var().
+   Modificar estos valores afecta a los
+   componentes que utilizan cada variable.
+   ========================================== */
+
+:root {
+
+  /* Colores principales */
+  --bg-space: #0e0c0a;             /* Fondo general */
+  --bg-card: rgba(28, 22, 18, .75); /* Fondo de tarjetas, 75% de opacidad */
+
+  /* Identidad visual */
+  --pink: #ff5c8a;  /* Logo, botones y detalles rosados */
+  --gold: #e6c594;  /* Precios, indicadores y detalles dorados */
+  --cream: #f3e5ab; /* Bordes y detalles complementarios */
+
+  /* Colores de texto */
+  --white: #ffffff; /* Títulos y textos principales */
+  --muted: #d1c7bd; /* Descripciones y textos secundarios */
+
+  /* Tipografías importadas desde Google Fonts en index.html */
+  --font-display: "Syne", sans-serif; /* Logo y títulos */
+  --font-body: "Plus Jakarta Sans", sans-serif; /* Texto general */
+}
+
+
+/* ==========================================
+   2. REINICIO DE ESTILOS
+   ========================================== */
+
+/* Incluye el padding y los bordes dentro del ancho y alto.
+   HTML: todos los elementos y pseudoelementos.
+   Ayuda a controlar las dimensiones del diseño responsive. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Elimina los espacios predeterminados del navegador.
+   HTML: body, títulos, párrafos, botones y contenedores. */
+
+* {
+  margin: 0;  /* Espacio exterior */
+  padding: 0; /* Espacio interior */
+}
+
+
+/* ==========================================
+   3. CONFIGURACIÓN GENERAL
+   ========================================== */
+
+/* 3.1. Navegación interna
+   HTML: enlaces hacia #drop, #lookbook y #vip.
+   Afecta al menú, VER COLECCIÓN y VER OUTFITS. */
+
+html {
+  scroll-behavior: smooth;   /* Desplazamiento suave */
+  scroll-padding-top: 100px; /* Evita que el navbar tape los títulos */
+}
+
+
+/* 3.2. Cuerpo principal
+   HTML: <body>.
+   Define el fondo y los estilos generales de la página. */
+
+body {
+  min-width: 0;
+  overflow-x: hidden; /* Oculta desbordamientos horizontales */
+
+  background-color: var(--bg-space);
+
+  /* 3.3. Iluminación del fondo
+     circle at: posición horizontal y vertical.
+     rgba: color e intensidad de la iluminación.
+     transparent: extensión del degradado. */
+
+  background-image:
+
+    /* Iluminación rosada superior izquierda */
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 92, 138, .12), /* Opacidad del 12% */
+      transparent 40%
+    ),
+
+    /* Iluminación dorada inferior derecha */
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(230, 197, 148, .08), /* Opacidad del 8% */
+      transparent 40%
+    );
+
+  color: var(--white);          /* Color general del texto */
+  font-family: var(--font-body); /* Tipografía general */
+}
+
+
+/* ==========================================
+   4. ELEMENTOS HTML
+   ========================================== */
+
+/* 4.1. Tipografía de botones y campos
+   HTML: botones del menú, bolsín, productos,
+   formulario VIP (#vip-email) y radios del carrusel.
+   Mantiene una tipografía uniforme. */
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* 4.2. Cursor de los botones
+   HTML: todos los elementos <button>.
+   Indica que el elemento es interactivo. */
+
+button {
+  cursor: pointer;
+}
+
+
+/* 4.3. Configuración de imágenes
+   HTML: carrusel, colección, Lookbook y carrito.
+   Adapta las fotografías al ancho de su contenedor. */
+
+img {
+  display: block;  /* Elimina el espacio inferior de línea */
+  max-width: 100%; /* Limita el ancho al del contenedor */
+}
+
+
+/* 4.4. Color de los enlaces
+   HTML: logo, menú de navegación, VER COLECCIÓN,
+   VER OUTFITS y demás elementos <a>.
+   Evita el color azul predeterminado del navegador. */
+
+a {
+  color: inherit;
+}
+
+
+/* ==========================================
+   5. ACCESIBILIDAD
+   ========================================== */
+
+/* 5.1. Navegación mediante teclado
+   HTML: enlaces, botones y campos del formulario.
+   Resalta el elemento enfocado al navegar con TAB. */
+
+:focus-visible {
+  outline: 3px solid var(--gold); /* Contorno dorado */
+  outline-offset: 3px;           /* Separación del contorno */
+}
+
+
+/* 5.2. Etiqueta oculta del formulario VIP
+   HTML: label.visually-hidden[for="vip-email"].
+
+   Oculta visualmente la etiqueta "Correo electrónico"
+   sin afectar su disponibilidad para lectores de pantalla.
+   No sustituir por display: none. */
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* 5.3. Enlace para saltar al contenido
+   HTML: <a class="skip-link" href="#contenido">.
+   Destino: <main id="contenido">.
+
+   Permite omitir el menú de navegación utilizando
+   el teclado. Permanece oculto hasta recibir el foco. */
+
+.skip-link {
+  position: fixed;
+
+  top: -80px;    /* Posición inicial oculta */
+  left: 15px;    /* Distancia del borde izquierdo */
+
+  z-index: 2000; /* Prioridad sobre otros elementos */
+
+  padding: 12px 18px;
+
+  background: var(--gold);
+  color: var(--bg-space);
+
+  border-radius: 10px;
+
+  font-weight: 800;
+  text-decoration: none;
+}
+
+
+/* 5.4. Mostrar enlace de accesibilidad
+   HTML: .skip-link.
+   Hace visible el enlace al recibir el foco con TAB. */
+
+.skip-link:focus {
+  top: 10px;
+}
+
+
+/* ==========================================
+   FIN DE base.css
+   ========================================== */

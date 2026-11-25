@@ -1,0 +1,332 @@
+
+/* ==========================================
+   PROYECTO: VIBE ABUNDANTE
+   ARCHIVO: flexbox.css
+
+   Distribución y alineación de los elementos
+   de la página mediante Flexbox.
+
+   1. Barra de navegación
+   2. Logo
+   3. Menú y carrito
+   4. Hero
+   5. Carrusel
+   6. Lookbook
+   7. Formulario VIP
+   8. Carrito lateral
+   ========================================== */
+
+
+/* ==========================================
+   1. BARRA DE NAVEGACIÓN
+   ========================================== */
+
+/* Distribuye horizontalmente el logo, los enlaces
+   de navegación y el botón del bolsín. */
+
+.navbar {
+  display: flex;
+
+  align-items: center;            /* Centrado vertical */
+  justify-content: space-between; /* Distribución horizontal */
+
+  gap: 20px; /* Separación entre elementos */
+}
+
+
+/* ==========================================
+   2. LOGO VIBE ABUNDANTE
+   ========================================== */
+
+/* Organiza el nombre de la marca y su eslogan
+   verticalmente, alineados hacia la izquierda. */
+
+.logo-navbar {
+  display: inline-flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+/* Mantiene las palabras VIBE y ABUNDANTE
+   alineadas en una misma línea. */
+
+.logo-main {
+  display: flex;
+
+  align-items: baseline; /* Alinea la base de los textos */
+  flex-wrap: nowrap;     /* Evita saltos de línea */
+}
+
+
+/* ==========================================
+   3. MENÚ DE NAVEGACIÓN Y CARRITO
+   ========================================== */
+
+/* Organiza y centra los enlaces del menú:
+   Colección, Vibes & Outfits y Comunidad VIP. */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 36px; /* Separación entre enlaces */
+}
+
+
+/* Botón del menú hamburguesa.
+   Permanece oculto en escritorio y se muestra
+   en pantallas pequeñas mediante responsive.css. */
+
+.menu-toggle {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Centra el contenido del botón del bolsín
+   ubicado en la barra de navegación. */
+
+.btn-cart-trigger {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Centra el número que indica la cantidad
+   de productos agregados al bolsín. */
+
+.cart-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==========================================
+   4. HERO PRINCIPAL
+   ========================================== */
+
+/* Distribuye el contenido textual a la izquierda
+   y el carrusel de fotografías a la derecha
+   en pantallas de escritorio. */
+
+.hero {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px; /* Separación entre texto y carrusel */
+}
+
+
+/* Contenido principal del Hero:
+   título, descripción y botones. */
+
+.hero-content {
+  flex: 1; /* Comparte el espacio disponible con el carrusel */
+}
+
+
+/* Organiza los botones VER COLECCIÓN y VER OUTFITS.
+   Permite colocarlos en otra línea si falta espacio. */
+
+.hero-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 16px; /* Separación entre botones */
+}
+
+
+/* Centra el carrusel de fotografías y comparte
+   el espacio disponible con el contenido textual. */
+
+.hero-visual {
+  display: flex;
+
+  flex: 1;
+
+  justify-content: center;
+}
+
+
+/* ==========================================
+   5. CARRUSEL
+   ========================================== */
+
+/* Distribuye horizontalmente los indicadores
+   superiores de las tres fotografías. */
+
+.story-bars {
+  display: flex;
+}
+
+
+/* Centra las flechas que permiten navegar
+   entre las fotografías del carrusel. */
+
+.carousel-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Organiza verticalmente la información del producto
+   que aparece sobre cada fotografía del carrusel. */
+
+.floating-tag {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* ==========================================
+   6. LOOKBOOK
+   ========================================== */
+
+/* Organiza verticalmente los textos superpuestos
+   a las fotografías de Vibes & Outfits. */
+
+.look-overlay {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* ==========================================
+   7. FORMULARIO VIP
+   ========================================== */
+
+/* Centra el campo de correo electrónico y el botón
+   de suscripción a la Comunidad VIP.
+
+   Permite distribuirlos en varias líneas
+   cuando el espacio disponible es reducido. */
+
+.vip-form {
+  display: flex;
+
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px; /* Separación entre campo y botón */
+}
+
+
+/* ==========================================
+   8. CARRITO LATERAL
+   ========================================== */
+
+/* Organiza verticalmente el encabezado,
+   la lista de productos y el resumen de compra. */
+
+.cart-drawer {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* Distribuye el título del bolsín y el botón
+   de cierre en extremos opuestos. */
+
+.cart-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Centra el símbolo del botón de cierre. */
+
+.close-cart {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Organiza verticalmente los productos agregados
+   al bolsín y aprovecha el espacio disponible. */
+
+.cart-items {
+  display: flex;
+
+  flex: 1;
+  flex-direction: column;
+}
+
+
+/* Distribuye horizontalmente la imagen
+   y la información de cada producto del bolsín. */
+
+.cart-item {
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* Permite que la información de cada producto
+   aproveche el espacio restante junto a su imagen. */
+
+.cart-item-details {
+  flex: 1;
+}
+
+
+/* Organiza los controles para aumentar, disminuir
+   o eliminar productos del bolsín. */
+
+.cart-qty-controls {
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+/* Centra los símbolos y textos dentro
+   de los botones de cantidad. */
+
+.cart-qty-controls button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Distribuye la etiqueta del total y el importe
+   de la compra en extremos opuestos. */
+
+.cart-total {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ==========================================
+   FIN DE flexbox.css
+   ========================================== */

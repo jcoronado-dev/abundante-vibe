@@ -1,0 +1,65 @@
+
+/* ==========================================
+   PROYECTO: VIBE ABUNDANTE
+   ARCHIVO: grid.css
+
+   Distribución de productos y fotografías
+   mediante filas y columnas con CSS Grid.
+
+   1. Cuadrícula de productos
+   2. Cuadrícula del Lookbook
+   ========================================== */
+
+
+/* ==========================================
+   1. CUADRÍCULA DE PRODUCTOS
+   ========================================== */
+
+/* Organiza las tarjetas de la colección en columnas
+   que se adaptan al espacio disponible de la pantalla.
+
+   auto-fit: ajusta automáticamente la cantidad de columnas.
+   minmax: establece el tamaño mínimo y máximo de cada columna.
+   280px: ancho mínimo de referencia para cada tarjeta.
+   1fr: distribuye equitativamente el espacio disponible.
+   min(100%, 280px): permite reducir el ancho en pantallas
+   pequeñas para evitar desbordamientos. */
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 280px), 1fr)
+  );
+
+  gap: 32px; /* Separación entre tarjetas de productos */
+}
+
+
+/* ==========================================
+   2. CUADRÍCULA DEL LOOKBOOK
+   ========================================== */
+
+/* Organiza las fotografías de Vibes & Outfits
+   en columnas adaptables al tamaño de la pantalla.
+
+   Utiliza la misma distribución que la colección
+   de productos, pero con una separación menor
+   entre las fotografías. */
+
+.lookbook-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 280px), 1fr)
+  );
+
+  gap: 28px; /* Separación entre fotografías del Lookbook */
+}
+
+
+/* ==========================================
+   FIN DE grid.css
+   ========================================== */

@@ -1,0 +1,1124 @@
+/* ==========================================
+   PROYECTO: VIBE ABUNDANTE
+   ARCHIVO: components.css
+
+   Diseño visual de los componentes de la página:
+   colores, tamaños, bordes, sombras, tipografías,
+   transiciones y animaciones.
+   ========================================== */
+
+
+/* ==========================================
+   1. FRANJA PROMOCIONAL
+   ========================================== */
+
+/* Diseña la franja de promociones ubicada
+   en la parte superior de la página. */
+.top-banner {
+  width: 100%;
+  padding: 10px 16px;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  color: #14100f;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 92, 138, .3);
+}
+
+/* Texto promocional para pantallas de escritorio. */
+.top-banner .banner-desktop {
+  display: block;
+  font-size: .75rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Versión del texto promocional para celulares.
+   Se mantiene oculta inicialmente. */
+.top-banner .banner-mobile {
+  display: none;
+  font-size: .7rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: .15px;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================
+   2. BARRA DE NAVEGACIÓN
+   ========================================== */
+
+/* Mantiene la barra de navegación visible
+   al desplazarse por la página. */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 20px 24px;
+  background: rgba(14, 12, 10, .94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(230, 197, 148, .12);
+}
+
+
+/* ==========================================
+   3. LOGO VIBE ABUNDANTE
+   ========================================== */
+
+/* Evita que el logo se comprima y aplica
+   una animación suave al cargar la página. */
+.logo-navbar {
+  flex-shrink: 0;
+  min-width: 0;
+  text-decoration: none;
+  line-height: 1;
+  animation: logoEntrada .9s ease-out both;
+}
+
+/* Mantiene juntas las palabras del logo. */
+.logo-main {
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Tipografía y tamaño del nombre de la marca. */
+.logo-vibe,
+.logo-abundante {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+/* Color blanco de la palabra VIBE. */
+.logo-vibe {
+  color: var(--white);
+}
+
+/* Color rosado de ABUNDANTE y transición
+   suave de color y luminosidad. */
+.logo-abundante {
+  color: var(--pink);
+  transition: color .35s, text-shadow .35s;
+}
+
+/* Apariencia del eslogan ubicado debajo del logo. */
+.logo-slogan {
+  margin-top: 7px;
+  color: var(--gold);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  transition: letter-spacing .35s;
+}
+
+/* Ilumina la palabra ABUNDANTE al pasar el cursor. */
+.logo-navbar:hover .logo-abundante {
+  color: #ff7ba3;
+  text-shadow:
+    0 0 8px rgba(255, 92, 138, .5),
+    0 0 18px rgba(255, 92, 138, .25);
+}
+
+/* Aumenta ligeramente la separación del eslogan. */
+.logo-navbar:hover .logo-slogan {
+  letter-spacing: 1.9px;
+}
+
+/* Animación de entrada del logo.
+   Aparece gradualmente mientras se desplaza hacia arriba. */
+@keyframes logoEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   4. ENLACES DE NAVEGACIÓN
+   ========================================== */
+
+/* Apariencia de los enlaces Colección,
+   Vibes & Outfits y Comunidad VIP. */
+.nav-links a {
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .3s, text-shadow .3s;
+}
+
+/* Resalta los enlaces al pasar el cursor
+   o seleccionarlos mediante el teclado. */
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--white);
+  text-shadow: 0 0 10px var(--cream);
+}
+
+
+/* ==========================================
+   5. MENÚ HAMBURGUESA
+   ========================================== */
+
+/* Diseña el botón que permite acceder
+   al menú en pantallas pequeñas. */
+.menu-toggle {
+  flex-shrink: 0;
+  padding: 9px 12px;
+  background: rgba(255, 92, 138, .12);
+  border: 1px solid var(--pink);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Intensifica el fondo al pasar el cursor. */
+.menu-toggle:hover {
+  background: rgba(255, 92, 138, .3);
+}
+
+
+/* ==========================================
+   6. BOTÓN DEL CARRITO
+   ========================================== */
+
+/* Evita que el contenedor del bolsín se comprima. */
+.cart-nav-wrapper {
+  flex-shrink: 0;
+}
+
+/* Diseña el botón del bolsín ubicado
+   en la barra de navegación. */
+.btn-cart-trigger {
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 92, 138, .15);
+  border: 1px solid var(--pink);
+  border-radius: 50px;
+  color: var(--white);
+  font-size: .85rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(255, 92, 138, .25);
+  transition: background .3s, transform .3s, box-shadow .3s;
+}
+
+/* Aumenta ligeramente el tamaño y brillo del botón. */
+.btn-cart-trigger:hover {
+  background: var(--pink);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 92, 138, .5);
+}
+
+/* Diseña el contador de productos del bolsín. */
+.cart-badge {
+  min-width: 22px;
+  min-height: 22px;
+  padding: 2px 6px;
+  background: var(--gold);
+  border-radius: 50px;
+  color: var(--bg-space);
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+
+/* ==========================================
+   7. HERO PRINCIPAL - TEXTOS
+   ========================================== */
+
+/* Define la altura y los márgenes internos
+   de la presentación principal de la página. */
+.hero {
+  min-height: 85vh; /* 85 % de la altura de la ventana */
+  padding: 50px 6%;
+}
+
+/* Limita el ancho del contenido textual del Hero. */
+.hero-content {
+  min-width: 0;
+  max-width: 620px;
+}
+
+/* Diseña la etiqueta destacada sobre el título. */
+.badge {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 6px 16px;
+  background: rgba(255, 92, 138, .15);
+  border: 1px solid var(--pink);
+  border-radius: 50px;
+  color: var(--pink);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  box-shadow: 0 0 15px rgba(255, 92, 138, .2);
+}
+
+/* Título principal: DOMINA TU ENERGÍA, VISTE TU PODER.
+   clamp() adapta el tamaño del texto a la pantalla
+   respetando un valor mínimo y máximo. */
+.hero h1 {
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
+}
+
+/* Resalta una parte del título con color rosado
+   y un efecto de luminosidad. */
+.highlight {
+  display: inline-block;
+  color: var(--pink);
+  text-shadow: 0 0 30px rgba(255, 92, 138, .5);
+}
+
+/* Apariencia del texto descriptivo del Hero. */
+.hero p {
+  margin-bottom: 36px;
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   8. BOTONES PRINCIPALES
+   ========================================== */
+
+/* Diseño del botón principal VER COLECCIÓN. */
+.btn-primary {
+  display: inline-block;
+  padding: 18px 36px;
+  background: var(--pink);
+  border: none;
+  border-radius: 50px;
+  color: var(--white);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: .5px;
+  box-shadow: 0 0 30px rgba(255, 92, 138, .4);
+  transition: transform .2s, box-shadow .3s;
+}
+
+/* Eleva ligeramente el botón y aumenta su brillo. */
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 45px rgba(255, 92, 138, .8);
+}
+
+/* Diseño del botón secundario VER OUTFITS. */
+.btn-secondary {
+  display: inline-block;
+  padding: 16px 32px;
+  border: 2px solid var(--cream);
+  border-radius: 50px;
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+
+/* Resalta el fondo y borde del botón secundario. */
+.btn-secondary:hover {
+  background: rgba(243, 229, 171, .1);
+  border-color: var(--white);
+  box-shadow: 0 0 20px rgba(243, 229, 171, .2);
+}
+
+
+/* ==========================================
+   9. CARRUSEL
+   ========================================== */
+
+/* Permite que el contenedor visual se adapte
+   al espacio disponible. */
+.hero-visual {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Define las dimensiones, bordes y sombras
+   del marco que contiene las fotografías. */
+.image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 540px;
+  overflow: hidden; /* Oculta lo que sobresale del marco */
+  border: 2px solid var(--pink);
+  border-radius: 28px;
+  box-shadow: 0 0 40px rgba(255, 92, 138, .3);
+  user-select: none;
+}
+
+/* Oculta visualmente los controles de selección
+   sin impedir el cambio de fotografías. */
+.image-frame input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Ubica los indicadores en la parte superior
+   del marco del carrusel. */
+.story-bars {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  right: 16px;
+  gap: 6px;
+  z-index: 20;
+}
+
+/* Apariencia de cada indicador del carrusel. */
+.bar {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, .35);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .3s, box-shadow .3s;
+}
+
+/* Ilumina en color dorado el indicador
+   correspondiente a la fotografía seleccionada. */
+#slide-1:checked ~ .story-bars .bar-1,
+#slide-2:checked ~ .story-bars .bar-2,
+#slide-3:checked ~ .story-bars .bar-3 {
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+/* Contenedor de las tres fotografías. */
+.slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mantiene las fotografías superpuestas y ocultas
+   hasta que una de ellas sea seleccionada.
+
+   opacity controla la visibilidad.
+   pointer-events evita interactuar con imágenes ocultas.
+   transition suaviza el cambio entre fotografías. */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.03);
+  transition: opacity .4s ease, transform .5s ease;
+}
+
+/* Muestra únicamente la fotografía seleccionada
+   y habilita sus controles de navegación. */
+#slide-1:checked ~ .slides-wrapper .s1,
+#slide-2:checked ~ .slides-wrapper .s2,
+#slide-3:checked ~ .slides-wrapper .s3 {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  z-index: 5;
+}
+
+/* Ajusta la fotografía al marco sin deformarla. */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Diseña las flechas de navegación y las ubica
+   a media altura del carrusel. */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  width: 38px;
+  height: 38px;
+  transform: translateY(-50%);
+  background: rgba(14, 12, 10, .65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 15;
+  transition: background .3s, transform .2s;
+}
+
+/* Resalta y amplía ligeramente las flechas. */
+.carousel-btn:hover {
+  background: var(--pink);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Posición de la flecha anterior. */
+.carousel-btn.prev {
+  left: 14px;
+}
+
+/* Posición de la flecha siguiente. */
+.carousel-btn.next {
+  right: 14px;
+}
+
+/* Diseña la etiqueta con información del producto
+   ubicada en la parte inferior de cada fotografía. */
+.floating-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  padding: 14px 22px;
+  background: rgba(14, 12, 10, .85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(230, 197, 148, .2);
+  z-index: 15;
+}
+
+/* Texto secundario de la etiqueta flotante. */
+.floating-tag span {
+  color: var(--muted);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Destaca la información principal de la etiqueta. */
+.floating-tag strong {
+  color: var(--gold);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+
+/* ==========================================
+   10. ENCABEZADOS DE SECCIONES
+   ========================================== */
+
+/* Centra los encabezados y establece
+   su separación respecto al contenido. */
+.section-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Adapta el tamaño de los títulos de cada sección. */
+.section-header h2 {
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+}
+
+/* Resalta palabras de los títulos en color dorado. */
+.acid-text {
+  color: var(--gold);
+  text-shadow: 0 0 25px rgba(230, 197, 148, .3);
+}
+
+/* Apariencia de las descripciones de cada sección. */
+.section-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   11. TARJETAS DE PRODUCTOS
+   ========================================== */
+
+/* Espaciado general de la colección de productos. */
+.drop-section {
+  padding: 90px 6%;
+}
+
+/* Diseña las tarjetas de productos y sus transiciones. */
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 197, 148, .12);
+  border-radius: 24px;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+/* Eleva la tarjeta y resalta su borde
+   al pasar el cursor sobre ella. */
+.product-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--pink);
+  box-shadow: 0 10px 40px rgba(255, 92, 138, .2);
+}
+
+/* Define la altura del espacio destinado
+   a la fotografía de cada producto. */
+.card-img {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+/* Ajusta la fotografía al espacio disponible
+   y prepara el efecto de acercamiento. */
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+/* Amplía la fotografía un 10 % al pasar el cursor. */
+.product-card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+/* Diseño y posición de las etiquetas
+   que destacan determinados productos. */
+.tag-hot,
+.tag-new {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Color de la etiqueta de producto destacado. */
+.tag-hot {
+  background: var(--pink);
+  color: var(--white);
+}
+
+/* Color de la etiqueta de producto nuevo. */
+.tag-new {
+  background: var(--gold);
+  color: var(--bg-space);
+}
+
+/* Espaciado de la información del producto. */
+.card-info {
+  padding: 24px;
+}
+
+/* Apariencia del nombre de cada producto. */
+.card-info h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Destaca el precio del producto en color dorado. */
+.price {
+  margin-bottom: 20px;
+  color: var(--gold);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+/* Diseño del botón AÑADIR A MI BOLSIN. */
+.btn-add {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid rgba(230, 197, 148, .3);
+  border-radius: 14px;
+  color: var(--white);
+  font-weight: 800;
+  text-align: center;
+  transition: background .3s, color .3s, box-shadow .3s;
+}
+
+/* Resalta el botón de compra con fondo dorado. */
+.btn-add:hover {
+  background: var(--gold);
+  color: var(--bg-space);
+  box-shadow: 0 0 25px rgba(230, 197, 148, .4);
+}
+
+
+/* ==========================================
+   12. LOOKBOOK
+   ========================================== */
+
+/* Fondo y espaciado de la sección Vibes & Outfits. */
+.lookbook-section {
+  padding: 80px 6%;
+  background: rgba(20, 16, 13, .6);
+}
+
+/* Define las dimensiones y bordes de las tarjetas
+   que presentan las combinaciones de ropa. */
+.look-card {
+  position: relative;
+  min-width: 0;
+  height: 450px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 197, 148, .15);
+  border-radius: 24px;
+  transition: transform .3s, border-color .3s;
+}
+
+/* Eleva la tarjeta y resalta su borde en dorado. */
+.look-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+/* Ajusta las fotografías sin deformarlas. */
+.look-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+
+/* Amplía ligeramente la fotografía del outfit. */
+.look-card:hover img {
+  transform: scale(1.07);
+}
+
+/* Coloca la información sobre la parte inferior
+   de la fotografía y utiliza un degradado oscuro
+   para facilitar la lectura del texto. */
+.look-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(
+    to top,
+    rgba(14, 12, 10, .95),
+    transparent
+  );
+}
+
+/* Texto secundario de cada outfit. */
+.look-overlay span {
+  color: var(--gold);
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+/* Nombre principal de cada outfit. */
+.look-overlay strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+
+/* ==========================================
+   13. COMUNIDAD VIP
+   ========================================== */
+
+/* Espaciado exterior de la sección de suscripción. */
+.vip-section {
+  padding: 70px 6% 110px;
+}
+
+/* Diseña el recuadro de la Comunidad VIP
+   con un degradado, bordes redondeados y sombras. */
+.vip-box {
+  padding: 70px 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 92, 138, .15),
+    rgba(28, 22, 18, .9)
+  );
+  border: 2px solid var(--pink);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(255, 92, 138, .15);
+}
+
+/* Tamaño adaptable del título de la Comunidad VIP. */
+.vip-box h2 {
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* Limita el ancho de la descripción
+   para facilitar su lectura. */
+.vip-box p {
+  max-width: 520px;
+  margin: 0 auto 35px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Diseña el campo donde se ingresa
+   el correo electrónico para la suscripción. */
+.vip-form input {
+  width: 320px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 18px 28px;
+  background: rgba(14, 12, 10, .6);
+  border: 1px solid rgba(230, 197, 148, .3);
+  border-radius: 50px;
+  color: var(--white);
+  font-size: .95rem;
+  outline: none;
+}
+
+/* Resalta el campo de correo al seleccionarlo. */
+.vip-form input:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 15px rgba(255, 92, 138, .3);
+}
+
+/* Apariencia del texto informativo del formulario. */
+.vip-box .vip-disclaimer {
+  margin: 18px auto 0;
+  font-size: .78rem;
+}
+
+/* Destaca los mensajes de respuesta del formulario. */
+.vip-box .vip-feedback {
+  margin: 12px auto 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   14. FOOTER
+   ========================================== */
+
+/* Diseña el pie de página y lo separa
+   del contenido mediante un borde superior. */
+.footer {
+  padding: 40px 6%;
+  border-top: 1px solid rgba(230, 197, 148, .1);
+  text-align: center;
+}
+
+/* Apariencia del logo ubicado en el pie de página. */
+.footer .logo {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* Resalta parte del nombre de la marca en rosado. */
+.footer .logo span {
+  color: var(--pink);
+}
+
+/* Apariencia de los textos del pie de página. */
+.footer p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   15. CARRITO LATERAL
+   ========================================== */
+
+/* Capa oscura que cubre la página cuando se abre
+   el bolsín. Permanece oculta inicialmente. */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 12, 10, .8);
+  backdrop-filter: blur(5px);
+  border: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 998;
+  transition: opacity .4s, visibility .4s;
+}
+
+/* Muestra la capa oscura al abrir el bolsín. */
+.cart-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Diseña el panel lateral del bolsín.
+   Inicialmente permanece fuera de la pantalla.
+
+   translateX(105%) desplaza el panel hacia la derecha.
+   100dvh adapta su altura al espacio visible del dispositivo.
+   La transición permite una apertura y cierre suaves. */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  height: 100dvh;
+  background: #171310;
+  border-left: 2px solid var(--pink);
+  box-shadow: -10px 0 40px rgba(255, 92, 138, .25);
+  transform: translateX(105%);
+  visibility: hidden;
+  z-index: 999;
+  transition:
+    transform .4s cubic-bezier(.16, 1, .3, 1),
+    visibility .4s;
+}
+
+/* Desplaza el panel hasta su posición visible. */
+.cart-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Espaciado y borde inferior del encabezado. */
+.cart-header {
+  gap: 16px;
+  padding: 24px;
+  border-bottom: 1px solid rgba(230, 197, 148, .1);
+}
+
+/* Tipografía del título del bolsín. */
+.cart-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+/* Diseño del botón para cerrar el bolsín. */
+.close-cart {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, .1);
+  border: 0;
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 800;
+}
+
+/* Resalta el botón de cierre en color rosado. */
+.close-cart:hover {
+  background: var(--pink);
+}
+
+/* Permite desplazarse por la lista de productos
+   sin mover todo el panel del bolsín. */
+.cart-items {
+  flex: 1;
+  gap: 16px;
+  min-height: 0;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Apariencia del mensaje cuando el bolsín está vacío. */
+.cart-empty {
+  padding: 28px 10px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Diseña el recuadro de cada producto agregado. */
+.cart-item {
+  gap: 16px;
+  padding: 12px;
+  background: rgba(28, 22, 18, .85);
+  border: 1px solid rgba(230, 197, 148, .12);
+  border-radius: 16px;
+}
+
+/* Define el tamaño de la fotografía del producto
+   y evita que se comprima o deforme. */
+.cart-item img {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Permite que la información del producto
+   se adapte al espacio disponible. */
+.cart-item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Apariencia del nombre del producto.
+   Permite dividir textos largos para evitar desbordamientos. */
+.cart-item-details h4 {
+  margin-bottom: 4px;
+  font-size: .95rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Destaca el precio de cada producto. */
+.cart-price {
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-size: .95rem;
+  font-weight: 800;
+}
+
+/* Apariencia del texto que indica la cantidad. */
+.cart-qty {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+/* Separación entre los controles de cantidad. */
+.cart-qty-controls {
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Diseño de los botones para gestionar
+   la cantidad de productos del bolsín. */
+.cart-qty-controls button {
+  min-width: 30px;
+  min-height: 30px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(230, 197, 148, .3);
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 800;
+}
+
+/* Resalta los controles al pasar el cursor. */
+.cart-qty-controls button:hover {
+  background: var(--pink);
+}
+
+/* Diferencia el botón para eliminar productos. */
+.cart-qty-controls .remove-item {
+  color: var(--pink);
+}
+
+/* Cambia el color del texto al pasar el cursor. */
+.cart-qty-controls .remove-item:hover {
+  color: var(--white);
+}
+
+/* Diseña la sección inferior del bolsín,
+   donde aparece el total y el botón de compra. */
+.cart-footer {
+  padding: 24px;
+  border-top: 1px solid rgba(230, 197, 148, .1);
+  background: rgba(14, 12, 10, .95);
+}
+
+/* Espaciado y tamaño del texto del total. */
+.cart-total {
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Destaca el importe total en color dorado. */
+.cart-total strong {
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* Hace que el botón de compra ocupe todo el ancho. */
+.cart-checkout-btn {
+  display: block;
+  width: 100%;
+}
+
+/* Apariencia del texto informativo del bolsín. */
+.cart-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: .75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* ==========================================
+   16. ANIMACIÓN DEL CARRUSEL
+   ========================================== */
+
+/* Aplica un acercamiento y desplazamiento suave
+   únicamente a la fotografía seleccionada.
+
+   5s: duración de la animación.
+   ease-in-out: inicio y final suaves.
+   both: aplica los estados inicial y final
+   de la animación según corresponda. */
+#slide-1:checked ~ .slides-wrapper .s1 img,
+#slide-2:checked ~ .slides-wrapper .s2 img,
+#slide-3:checked ~ .slides-wrapper .s3 img {
+  animation: vibeSlideMotion 5s ease-in-out both;
+}
+
+/* Genera un movimiento progresivo de la fotografía
+   mediante acercamiento y desplazamiento vertical. */
+@keyframes vibeSlideMotion {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.04) translateY(-4px);
+  }
+
+  100% {
+    transform: scale(1.08) translateY(-8px);
+  }
+}
+
+/* Desactiva la animación cuando el usuario
+   tiene activada la preferencia de movimiento reducido.
+   Mejora la accesibilidad del carrusel. */
+@media (prefers-reduced-motion: reduce) {
+  .slide img {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================
+   FIN DE components.css
+   ========================================== */

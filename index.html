@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- ==========================================
+     PROYECTO: VIBE ABUNDANTE
+     ARCHIVO: index.html
+
+     Estructura y contenido de la tienda virtual.
+     ========================================== -->
+
+<head>
+  <!-- Codificación de caracteres y adaptación al ancho del dispositivo. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIBE ABUNDANTE — Streetwear Femenino & Empoderamiento</title>
+  <meta name="description" content="VIBE ABUNDANTE: moda femenina, confianza y estilo. Explora nuestra colección, outfits y comunidad.">
+
+  <!-- Tipografías de Google Fonts para títulos y textos. -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales. -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- Distribución y alineación con Flexbox. -->
+  <link rel="stylesheet" href="css/flexbox.css">
+
+  <!-- Cuadrículas de productos y fotografías. -->
+  <link rel="stylesheet" href="css/grid.css">
+
+  <!-- Diseño visual de los componentes. -->
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Adaptación a diferentes tamaños de pantalla. -->
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       1. ACCESIBILIDAD
+       ========================================== -->
+
+  <!-- Permite acceder directamente al contenido mediante el teclado. -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+
+  <!-- ==========================================
+       2. FRANJA PROMOCIONAL
+       ========================================== -->
+
+  <!-- Presenta mensajes promocionales para escritorio y celular. -->
+  <div class="top-banner">
+    <span class="banner-desktop">
+      ✨ VIBE ABUNDANTE: VÍSTETE COMO LA MUJER EXITOSA QUE YA ERES
+      • ENVÍOS A TODO EL PERÚ ✨
+    </span>
+    <span class="banner-mobile">✨ VIBE ABUNDANTE · ENVÍOS A TODO EL PERÚ ✨</span>
+  </div>
+
+
+  <!-- ==========================================
+       3. NAVEGACIÓN PRINCIPAL
+       ========================================== -->
+
+  <header class="navbar" aria-label="Navegación principal">
+
+    <!-- Botón del menú móvil. aria-expanded indica si está abierto. -->
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="menu-principal" aria-expanded="false">☰</button>
+
+    <!-- Logo de la marca y enlace de regreso al inicio. -->
+    <a href="#inicio" class="logo-navbar" aria-label="Vibe Abundante - Inicio">
+      <span class="logo-main">
+        <span class="logo-vibe">VIBE</span>
+        <span class="logo-abundante">ABUNDANTE</span>
+      </span>
+      <span class="logo-slogan">FASHION · CONFIDENCE · POWER</span>
+    </a>
+
+    <!-- Enlaces internos hacia las secciones de la tienda. -->
+    <nav class="nav-links" id="menu-principal" aria-label="Secciones de la tienda">
+      <a href="#drop">Colección</a>
+      <a href="#lookbook">Vibes & Outfits</a>
+      <a href="#vip">Comunidad VIP</a>
+    </nav>
+
+    <!-- Botón de apertura del bolsín y contador de productos. -->
+    <div class="cart-nav-wrapper">
+      <button type="button" class="btn-cart-trigger" aria-label="Abrir bolsín de compras" aria-controls="panel-carrito" aria-expanded="false">
+        <span class="cart-label">
+          <span aria-hidden="true">🛒</span>
+          <span class="cart-label-text">MI CARRITO</span>
+        </span>
+        <span class="cart-badge" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ==========================================
+       4. CONTENIDO PRINCIPAL - HERO
+       ========================================== -->
+
+  <main id="contenido">
+
+    <!-- Presentación de la marca y su propuesta de valor. -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
+      <div class="hero-content">
+        <span class="badge">MANIFIESTA TU PODER // 01</span>
+
+        <h1 id="titulo-inicio">
+          DOMINA TU ENERGÍA,
+          <span class="highlight">VISTE TU PODER.</span>
+        </h1>
+
+        <p>
+          Prendas de alta energía creadas para chicas que pisan
+          fuerte, confían ciegamente en sí mismas, proyectan
+          abundancia y seguridad.
+        </p>
+
+        <!-- Botones de acceso a la colección y al Lookbook. -->
+        <div class="hero-actions">
+          <a href="#drop" class="btn-primary">VER COLECCIÓN ✨</a>
+          <a href="#lookbook" class="btn-secondary">VER OUTFITS</a>
+        </div>
+      </div>
+
+
+      <!-- ==========================================
+           5. CARRUSEL DE IMÁGENES
+           ========================================== -->
+
+      <div class="hero-visual">
+        <div class="image-frame">
+
+          <!-- Los controles radio comparten el mismo name para
+               seleccionar una sola imagen. checked activa la primera. -->
+          <input type="radio" name="hero-slider" id="slide-1" aria-label="Mostrar imagen 1 de 3" checked>
+          <input type="radio" name="hero-slider" id="slide-2" aria-label="Mostrar imagen 2 de 3">
+          <input type="radio" name="hero-slider" id="slide-3" aria-label="Mostrar imagen 3 de 3">
+
+          <!-- Cada indicador se vincula a una imagen mediante for. -->
+          <div class="story-bars">
+            <label for="slide-1" class="bar bar-1" aria-label="Ver imagen 1 de 3"></label>
+            <label for="slide-2" class="bar bar-2" aria-label="Ver imagen 2 de 3"></label>
+            <label for="slide-3" class="bar bar-3" aria-label="Ver imagen 3 de 3"></label>
+          </div>
+
+          <!-- Las flechas permiten recorrer las fotografías en ciclo. -->
+          <div class="slides-wrapper">
+
+            <!-- Imagen 1: Set Power Aura. Tiene prioridad de carga. -->
+            <div class="slide s1">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Set Power Aura" decoding="async" fetchpriority="high">
+
+              <div class="floating-tag">
+                <span>Set Power Aura</span>
+                <strong>S/ 149.00</strong>
+              </div>
+
+              <label for="slide-3" class="carousel-btn prev" aria-label="Anterior">‹</label>
+              <label for="slide-2" class="carousel-btn next" aria-label="Siguiente">›</label>
+            </div>
+
+            <!-- Imagen 2: Cargo Parachute Vibe. -->
+            <div class="slide s2">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Cargo Parachute Vibe" decoding="async" loading="lazy">
+
+              <div class="floating-tag">
+                <span>Cargo Parachute Vibe</span>
+                <strong>S/ 129.00</strong>
+              </div>
+
+              <label for="slide-1" class="carousel-btn prev" aria-label="Anterior">‹</label>
+              <label for="slide-3" class="carousel-btn next" aria-label="Siguiente">›</label>
+            </div>
+
+            <!-- Imagen 3: Crop Top Confianza. -->
+            <div class="slide s3">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Crop Top Confianza" decoding="async" loading="lazy">
+
+              <div class="floating-tag">
+                <span>Crop Top Confianza</span>
+                <strong>S/ 69.00</strong>
+              </div>
+
+              <label for="slide-2" class="carousel-btn prev" aria-label="Anterior">‹</label>
+              <label for="slide-1" class="carousel-btn next" aria-label="Siguiente">›</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         6. COLECCIÓN DE PRODUCTOS
+         ========================================== -->
+
+    <section class="drop-section" id="drop" aria-labelledby="titulo-drop">
+      <div class="section-header">
+        <h2 id="titulo-drop">
+          PIEZAS QUE <span class="acid-text">INSPIRAN</span>
+        </h2>
+        <p>
+          Ediciones limitadas diseñadas para reflejar
+          tu seguridad interior.
+        </p>
+      </div>
+
+      <!-- Cada article representa un producto independiente.
+           data-product-id identifica el producto para agregarlo al bolsín.
+           loading="lazy" permite diferir la carga de las imágenes. -->
+      <div class="product-grid">
+
+        <!-- Producto 1: Cargo Parachute Oversize. -->
+        <article class="product-card">
+          <div class="card-img">
+            <span class="tag-hot">FAVORITO</span>
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Cargo Parachute Oversize" loading="lazy" decoding="async">
+          </div>
+
+          <div class="card-info">
+            <h3>Cargo Parachute Oversize</h3>
+            <p class="price">S/ 129.00</p>
+            <button class="btn-add" type="button" data-product-id="0">AÑADIR A MI BOLSIN</button>
+          </div>
+        </article>
+
+        <!-- Producto 2: Crop Top Confianza Pink. -->
+        <article class="product-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Crop Top Asimétrico" loading="lazy" decoding="async">
+          </div>
+
+          <div class="card-info">
+            <h3>Crop Top Confianza Pink</h3>
+            <p class="price">S/ 69.00</p>
+            <button class="btn-add" type="button" data-product-id="1">AÑADIR A MI BOLSIN</button>
+          </div>
+        </article>
+
+        <!-- Producto 3: Bomber Jacket Éxito. -->
+        <article class="product-card">
+          <div class="card-img">
+            <span class="tag-new">NUEVO</span>
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Bomber" loading="lazy" decoding="async">
+          </div>
+
+          <div class="card-info">
+            <h3>Bomber Jacket Éxito</h3>
+            <p class="price">S/ 159.00</p>
+            <button class="btn-add" type="button" data-product-id="2">AÑADIR A MI BOLSIN</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         7. LOOKBOOK - VIBES & OUTFITS
+         ========================================== -->
+
+    <section class="lookbook-section" id="lookbook" aria-labelledby="titulo-lookbook">
+      <div class="section-header">
+        <h2 id="titulo-lookbook">
+          COMUNIDAD <span class="acid-text">VIBE</span>
+        </h2>
+        <p>Actitud, fuerza y estilo en cada prenda.</p>
+      </div>
+
+      <!-- Galería de outfits organizada mediante CSS Grid.
+           Cada tarjeta presenta una fotografía, usuario y nombre del look. -->
+      <div class="lookbook-grid">
+
+        <!-- Outfit 1: Set Power Aura. -->
+        <div class="look-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Lookbook Set Power Aura" loading="lazy" decoding="async">
+          <div class="look-overlay">
+            <span>@valeria.vibe</span>
+            <strong>Set Power Aura</strong>
+          </div>
+        </div>
+
+        <!-- Outfit 2: Cargo + Crop Top. -->
+        <div class="look-card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Lookbook Cargo y Crop Top" loading="lazy" decoding="async">
+          <div class="look-overlay">
+            <span>@camila.abundante</span>
+            <strong>Cargo + Crop Top</strong>
+          </div>
+        </div>
+
+        <!-- Outfit 3: Night Out Look. -->
+        <div class="look-card">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Lookbook Night Out" loading="lazy" decoding="async">
+          <div class="look-overlay">
+            <span>@sofia.knt</span>
+            <strong>Night Out Look</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         8. COMUNIDAD VIP
+         ========================================== -->
+
+    <section class="vip-section" id="vip" aria-labelledby="titulo-vip">
+      <div class="vip-box">
+        <h2 id="titulo-vip">
+          ÚNETE A LA COMUNIDAD +
+          <span class="highlight">15% OFF</span>
+        </h2>
+
+        <p>
+          Recibe inspiración diaria, acceso anticipado
+          a drops y sorpresas exclusivas en tu correo.
+        </p>
+
+        <!-- Formulario demostrativo de suscripción.
+             type="email" valida el formato básico del correo.
+             required establece que el campo es obligatorio.
+             La etiqueta oculta mejora la accesibilidad. -->
+        <form class="vip-form" id="form-vip">
+          <label class="visually-hidden" for="vip-email">Correo electrónico</label>
+          <input type="email" id="vip-email" name="email" placeholder="Tu correo electrónico..." autocomplete="email" maxlength="254" aria-describedby="vip-aviso" required>
+          <button class="btn-primary" type="submit">QUIERO MI BENEFICIO</button>
+        </form>
+
+        <!-- Aviso y mensaje de respuesta del formulario. -->
+        <p class="vip-disclaimer" id="vip-aviso">Formulario demostrativo: no guarda ni envía tus datos.</p>
+        <p class="vip-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ==========================================
+       9. PIE DE PÁGINA
+       ========================================== -->
+
+  <!-- Presenta el nombre de la marca y su propósito. -->
+  <footer class="footer">
+    <div class="logo">
+      VIBE ABUNDANTE<span>.</span>
+    </div>
+    <p>
+      © 2026 Vibe Abundante.
+      Diseñado con propósito para inspirar a las mujeres.
+    </p>
+  </footer>
+
+
+  <!-- ==========================================
+       10. CARRITO LATERAL - BOLSÍN
+       ========================================== -->
+
+  <!-- Panel inicialmente oculto que muestra los productos agregados.
+       role="dialog" identifica el panel como un diálogo accesible. -->
+  <div class="cart-drawer" id="panel-carrito" role="dialog" aria-modal="true" aria-label="Tu bolsín" aria-hidden="true">
+
+    <!-- Encabezado y botón de cierre del bolsín. -->
+    <div class="cart-header">
+      <h3>TU BOLSA</h3>
+      <button class="close-cart" type="button" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <!-- Contenedor donde se muestran los productos agregados. -->
+    <div class="cart-items">
+      <p class="cart-empty">Tu bolsa está vacía. ¡Elige tu primera prenda!</p>
+    </div>
+
+    <!-- Resumen del importe total y simulación de compra. -->
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Inversión Total:</span>
+        <strong aria-live="polite">S/ 0.00</strong>
+      </div>
+
+      <button class="btn-primary cart-checkout-btn" type="button">FINALIZAR (DEMOSTRACIÓN)</button>
+      <p class="cart-note">Prototipo académico: no se procesan pagos ni pedidos.</p>
+    </div>
+  </div>
+
+  <!-- Capa oscura que permite cerrar el bolsín al seleccionarla. -->
+  <button class="cart-overlay" type="button" aria-label="Cerrar carrito"></button>
+
+
+  <!-- ==========================================
+       11. JAVASCRIPT
+       ========================================== -->
+
+  <!-- Gestiona el menú hamburguesa, carrusel automático,
+       bolsín de compras y formulario VIP.
+       Se carga al final para disponer de los elementos HTML. -->
+  <script src="script.js"></script>
+
+</body>
+</html>
